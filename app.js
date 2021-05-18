@@ -1,15 +1,18 @@
 const express = require('express');
 
 const app = express();
-const marRouter = require('.mar')
-
+// const home = express.Router();
+const marRouter = require('./mar')
+// console.log(marRouter)
 app.set('view engine', 'pug')
 
 app.get('/', (req, res) => {
     res.send('Hello from Express!')
 })
 
-app.use()
+
+app.use('/marg\(ot\|eaux\)', marRouter)
+
 
 app.get(/(xyz)$/, (req, res) => {
     res.send("That's all I wrote.")
@@ -30,3 +33,6 @@ const port = 8081
 app.listen(port, () => {
     console.log(`Listening on Port ${port}`)
 })
+
+
+
