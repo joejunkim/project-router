@@ -8,12 +8,15 @@ app.get('/', (req, res) => {
     res.send('Hello from Express!')
 })
 
+app.get(/(xyz)$/, (req, res) => {
+    res.send("That's all I wrote.")
+})
+
 app.all('/:id', (req, res) => {
     // console.log(req.params.id)
     let random = Math.floor(Math.random() * 100)
 
     res.render("index", { method: `${req.method}`, path: `${req.path}`, random_number: `${random}` })
-
 })
 
 const port = 8081
@@ -21,4 +24,3 @@ const port = 8081
 app.listen(port, () => {
     console.log(`Listening on Port ${port}`)
 })
-
